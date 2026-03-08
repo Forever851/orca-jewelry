@@ -1,0 +1,230 @@
+{
+    "stock": [
+        {
+            "name": "Blue Topaz Silver Ring",
+            "category": "Silver",
+            "price": 25.0,
+            "quantity": 5
+        },
+        {
+            "name": "Men's Agate Ring (Yamani)",
+            "category": "Gemstone",
+            "price": 45.5,
+            "quantity": 0
+        },
+        {
+            "name": "Traditional Omani Khanjar Pendant",
+            "category": "Gold",
+            "price": 120.0,
+            "quantity": 3
+        }
+    ],
+    "sales": [
+        {
+            "date": "2026-03-08",
+            "customer": "Ahmed Al-Balushi",
+            "item": "Blue Topaz Silver Ring",
+            "total": 25.0,
+            "balance": 0.0,
+            "status": "Completed",
+            "advance": 25.0,
+            "id": 999,
+            "gender": "Unspecified",
+            "phone": "N/A"
+        },
+        {
+            "date": "2026-03-09",
+            "customer": "Salim Mohammed",
+            "item": "Custom Gold Wedding Band",
+            "total": 185.75,
+            "balance": 0.0,
+            "status": "Completed",
+            "advance": 185.75,
+            "id": 999,
+            "gender": "Unspecified",
+            "phone": "N/A"
+        },
+        {
+            "date": "2026-03-09",
+            "customer": "",
+            "item": "Blue Topaz Silver Ring",
+            "total": 25.0,
+            "balance": 0.0,
+            "status": "Completed",
+            "advance": 25.0,
+            "id": 999,
+            "gender": "Unspecified",
+            "phone": "N/A"
+        },
+        {
+            "id": 4,
+            "date": "2026-03-09",
+            "customer": "",
+            "item": "Gold Jewelry Item",
+            "total": 0.0,
+            "details": "W: 0.0g, M: 0.0, R: 0.0",
+            "balance": 0.0,
+            "status": "Completed",
+            "advance": 0.0,
+            "gender": "Unspecified",
+            "phone": "N/A"
+        },
+        {
+            "id": 5,
+            "date": "2026-03-09",
+            "customer": "msajig",
+            "item": "Gold Jewelry Item",
+            "total": 0.003465,
+            "details": "W: 0.03g, M: 0.05, R: 0.06",
+            "balance": 0.0,
+            "status": "Completed",
+            "advance": 0.003465,
+            "gender": "Unspecified",
+            "phone": "N/A"
+        },
+        {
+            "id": 1000,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Blue Topaz Silver Ring",
+            "total": 24.5,
+            "advance": 24.5,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1001,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Blue Topaz Silver Ring",
+            "total": 24.5,
+            "advance": 24.5,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1002,
+            "date": "2026-03-09",
+            "customer": "1122",
+            "phone": "",
+            "gender": "Female",
+            "item": "Blue Topaz Silver Ring",
+            "total": 25.0,
+            "advance": 25.0,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1003,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Blue Topaz Silver Ring",
+            "total": 25.0,
+            "advance": 25.0,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1004,
+            "date": "2026-03-09",
+            "customer": "Majid ",
+            "phone": "97305079",
+            "gender": "Male",
+            "item": "Men's Agate Ring (Yamani)",
+            "total": 44.589999999999996,
+            "advance": 44.589999999999996,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1005,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Men's Agate Ring (Yamani)",
+            "total": 45.5,
+            "advance": 45.5,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1006,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Men's Agate Ring (Yamani)",
+            "total": 44.135,
+            "advance": 44.135,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1007,
+            "date": "2026-03-09",
+            "customer": "Majid",
+            "phone": "97305079",
+            "gender": "Male",
+            "item": "Blue Topaz Silver Ring",
+            "total": 24.5,
+            "advance": 24.5,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1008,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "",
+            "total": 44.0,
+            "advance": 44.0,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1009,
+            "date": "2026-03-09",
+            "customer": "Majid",
+            "phone": "97305079",
+            "gender": "Male",
+            "item": "Blue Topaz Silver Ring",
+            "total": 24.75,
+            "advance": 24.75,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1010,
+            "date": "2026-03-09",
+            "customer": "",
+            "phone": "",
+            "gender": "Female",
+            "item": "Traditional Omani Khanjar Pendant",
+            "total": 120.0,
+            "advance": 120.0,
+            "balance": 0.0,
+            "status": "Completed"
+        },
+        {
+            "id": 1011,
+            "date": "2026-03-09",
+            "customer": "majid",
+            "phone": "978877",
+            "gender": "Male",
+            "item": "Traditional Omani Khanjar Pendant",
+            "total": 120.0,
+            "advance": 120.0,
+            "balance": 0.0,
+            "status": "Completed"
+        }
+    ]
+}
