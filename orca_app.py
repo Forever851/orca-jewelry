@@ -57,12 +57,12 @@ def check_login():
 
     with st.container():
         st.markdown('<div class="login-card">', unsafe_allow_html=True)
-        st.markdown(f"<h1 style='letter-spacing:5px;'>ORCA</h1><p style='color:#666; font-size:12px; margin-bottom:30px;'>JEWELRY MANAGEMENT</p>", unsafe_allow_html=True)
+        st.markdown(f"<h1 style='letter-spacing:5px;'>Orca Jewellery</h1><p style='color:#666; font-size:12px; margin-bottom:30px;'></p>", unsafe_allow_html=True)
         
         user = st.text_input("Username", placeholder="Enter username")
         pw = st.text_input("Password", type="password", placeholder="Enter password")
         
-        if st.button("Access Dashboard"):
+        if st.button("Login"):
             if user == "admin" and pw == "orca123":
                 st.session_state['authenticated'] = True
                 st.rerun()
@@ -291,3 +291,4 @@ if check_login():
             res = [{"Phone": k, "Client Name": v['name']} for k, v in db_cust.items() if query in k or query in v['name'].lower()]
             st.table(res)
         st.markdown('</div>', unsafe_allow_html=True)
+
