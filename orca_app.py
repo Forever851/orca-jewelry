@@ -122,7 +122,7 @@ def get_bill_html(s, auto_print=False):
 with st.sidebar:
     st.markdown('<div class="nav-logo">', unsafe_allow_html=True)
     try:
-        logo = Image.open("logo.jpg")
+        logo = Image.open("logo.png")
         st.image(logo, use_container_width=True)
     except:
         st.write("💎")
