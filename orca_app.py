@@ -29,7 +29,7 @@ db_sales = load_json(SALES_DB, [])
 db_stock = load_json(INVENTORY_DB, [])
 db_cust = load_json(CUSTOMER_DB, {})
 
-# --- 2. ELITE UI STYLING (REFINED) ---
+# --- 2. ELITE UI STYLING ---
 st.set_page_config(page_title="ORCA Jewelry | Management", layout="wide")
 
 st.markdown(f"""
@@ -49,7 +49,7 @@ st.markdown(f"""
             min-width: 300px !important;
         }}
 
-        /* CUSTOM LOGO AREA */
+        /* LOGO AREA */
         .logo-section {{
             padding: 45px 20px;
             text-align: center;
@@ -59,8 +59,8 @@ st.markdown(f"""
         .logo-text {{
             font-family: 'Cinzel', serif;
             color: {GOLD_ACCENT};
-            font-size: 28px;
-            letter-spacing: 6px;
+            font-size: 24px;
+            letter-spacing: 4px;
             margin: 0;
             font-weight: 700;
         }}
@@ -73,56 +73,46 @@ st.markdown(f"""
             margin-top: 8px;
         }}
 
-        /* NAVIGATION STYLING - UNIFORM BOXES */
+        /* SIDEBAR NAVIGATION (White Font) */
         [data-testid="stSidebar"] [data-testid="stWidgetLabel"] {{
             display: none;
         }}
         
-        div[role="radiogroup"] {{
+        [data-testid="stSidebar"] div[role="radiogroup"] {{
             display: flex;
             flex-direction: column;
             gap: 12px;
             padding: 0 20px;
         }}
         
-        /* Force uniform size for all menu tabs */
-        div[role="radiogroup"] label {{
+        [data-testid="stSidebar"] div[role="radiogroup"] label {{
             background: rgba(255,255,255,0.05) !important;
             border: 1px solid rgba(255,255,255,0.1) !important;
             padding: 15px 20px !important;
-            border-radius: 12px !important;
-            transition: all 0.3s ease !important;
-            min-height: 55px !important; /* Uniform Height */
+            border-radius: 20px !important;
+            min-height: 55px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            width: 100% !important; /* Uniform Width */
-            margin: 0 !important;
+            width: 100% !important;
+            transition: all 0.3s ease;
         }}
 
-        /* Font color forced to white for all states */
-        div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {{
+        [data-testid="stSidebar"] div[role="radiogroup"] label p {{
             color: white !important;
             font-weight: 400 !important;
-            letter-spacing: 1px;
-            font-size: 14px;
+            margin-bottom: 0 !important;
         }}
         
-        div[role="radiogroup"] label:hover {{
-            background: rgba(212, 175, 55, 0.15) !important;
-            border-color: {GOLD_ACCENT} !important;
-            transform: translateY(-2px);
-        }}
-        
-        /* Active Tab Styling */
-        div[data-checked="true"] {{
+        [data-testid="stSidebar"] div[data-checked="true"] {{
             background: {ORCA_COLOR} !important;
             border-color: {ORCA_COLOR} !important;
-            box-shadow: 0 4px 15px rgba(0, 168, 158, 0.4);
         }}
-        
-        div[data-checked="true"] p {{
-            font-weight: 600 !important;
+
+        /* MAIN CONTENT RADIO BUTTONS (Force Black Font) */
+        [data-testid="stMain"] div[role="radiogroup"] label p {{
+            color: #1a1a1a !important;
+            font-weight: 500 !important;
         }}
 
         /* Content Cards */
@@ -135,7 +125,6 @@ st.markdown(f"""
             margin-bottom: 25px;
         }}
 
-        /* Footer */
         .footer-credit {{
             position: fixed;
             bottom: 20px;
@@ -144,7 +133,6 @@ st.markdown(f"""
             text-align: center;
             color: rgba(255,255,255,0.3);
             font-size: 10px;
-            letter-spacing: 1px;
         }}
     </style>
 """, unsafe_allow_html=True)
@@ -165,7 +153,6 @@ def get_bill_html(s, auto_print=False):
                 <p style="margin:0; color:#64748b; font-size:12px;">Ref: #ORC-{s['id']}</p>
             </div>
         </div>
-
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:40px; margin:50px 0;">
             <div style="background:#f8fafc; padding:20px; border-radius:12px;">
                 <p style="font-size:10px; color:#94a3b8; text-transform:uppercase; font-weight:700; margin-bottom:8px;">Customer Details</p>
@@ -175,10 +162,8 @@ def get_bill_html(s, auto_print=False):
             <div style="text-align:right; padding:20px;">
                 <p style="font-size:10px; color:#94a3b8; text-transform:uppercase; font-weight:700; margin-bottom:8px;">Date of Issue</p>
                 <p style="margin:0; font-weight:600; font-size:17px;">{s['date']}</p>
-                <p style="margin:3px 0 0 0; color:#64748b; font-size:14px;">Muscat, Oman</p>
             </div>
         </div>
-
         <table style="width:100%; border-collapse:collapse;">
             <thead>
                 <tr style="border-bottom:1px solid #edf2f7;">
@@ -189,25 +174,20 @@ def get_bill_html(s, auto_print=False):
             <tbody>
                 <tr>
                     <td style="padding:30px 0; border-bottom:1px solid #f1f5f9;">
-                        <p style="margin:0; font-weight:600;">Standard Jewelry Selection</p>
-                        <p style="margin:5px 0 0 0; font-size:13px; color:#64748b; line-height:1.5;">{s['item']}</p>
+                        <p style="margin:0; font-weight:600;">Jewelry Selection</p>
+                        <p style="margin:5px 0 0 0; font-size:13px; color:#64748b;">{s['item']}</p>
                     </td>
                     <td style="padding:30px 0; text-align:right; border-bottom:1px solid #f1f5f9; font-weight:600;">{s['total']:.3f} OMR</td>
                 </tr>
             </tbody>
         </table>
-
         <div style="margin-top:30px; display:flex; justify-content:flex-end;">
             <div style="width:280px; background:#f8fafc; padding:20px; border-radius:12px;">
                 <div style="display:flex; justify-content:space-between; padding:5px 0; font-size:13px; color:#64748b;">
                     <span>VAT Included:</span>
                     <span>{vat_included:.3f}</span>
                 </div>
-                <div style="display:flex; justify-content:space-between; padding:5px 0; font-size:13px; color:#64748b;">
-                    <span>Paid:</span>
-                    <span>{s['advance']:.3f}</span>
-                </div>
-                <div style="display:flex; justify-content:space-between; padding:10px 0 0 0; border-top:1px solid #e2e8f0; margin-top:10px; font-weight:700; font-size:20px; color:{ORCA_COLOR};">
+                <div style="display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid #e2e8f0; margin-top:10px; font-weight:700; font-size:20px; color:{ORCA_COLOR};">
                     <span>Balance:</span>
                     <span>{s['balance']:.3f}</span>
                 </div>
@@ -221,8 +201,8 @@ def get_bill_html(s, auto_print=False):
 with st.sidebar:
     st.markdown(f"""
         <div class="logo-section">
-            <h1 class="logo-text">ORCA</h1>
-            <div class="logo-subtext">Jewelry</div>
+            <h1 class="logo-text">ORCA Jewelry</h1>
+            <div class="logo-subtext">Luqman Al Hoti</div>
         </div>
     """, unsafe_allow_html=True)
     
@@ -231,11 +211,9 @@ with st.sidebar:
         ["Dashboard", "Inventory", "New Invoice", "History", "Customers"],
         label_visibility="collapsed"
     )
-    
     st.markdown('<div class="footer-credit">© Luqman Al Hoti</div>', unsafe_allow_html=True)
 
 # --- 5. APPLICATION LOGIC ---
-
 if menu == "Dashboard":
     st.title("Business Intelligence")
     c1, c2, c3 = st.columns(3)
@@ -249,7 +227,6 @@ if menu == "Dashboard":
     with c3: st.metric("Vault Stock", sum(i["quantity"] for i in db_stock))
 
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("Sales Performance")
     if db_sales:
         df_sales['date'] = pd.to_datetime(df_sales['date'])
         daily = df_sales.groupby('date')['total'].sum().reset_index()
@@ -266,6 +243,7 @@ elif menu == "New Invoice":
     with p_col2: name = st.text_input("Customer Name", value=db_cust.get(phone, {}).get("name", ""))
     
     st.divider()
+    # THIS SECTION NOW HAS BLACK TEXT
     inv_mode = st.radio("Item Source", ["Ready Stock", "Manufacturing"], horizontal=True)
     
     m_col1, m_col2 = st.columns(2)
@@ -291,13 +269,11 @@ elif menu == "New Invoice":
         sale = {"id": len(db_sales)+1, "date": datetime.now().strftime("%Y-%m-%d"), "customer": name, "phone": phone, "item": desc, "total": total, "advance": paid, "balance": total-paid}
         db_sales.append(sale)
         save_json(SALES_DB, db_sales)
-        
         if inv_mode == "Ready Stock" and options:
             s_id = choice.split(" - ")[0]
             for i in db_stock:
                 if i['serial'] == s_id: i['quantity'] -= 1
             save_json(INVENTORY_DB, db_stock)
-        
         components.html(get_bill_html(sale, True), height=900, scrolling=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -312,7 +288,6 @@ elif menu == "Inventory":
                 db_stock.append({"serial": f"ORC-{random.randint(1000,9999)}", "name": n, "price": p, "quantity": q})
                 save_json(INVENTORY_DB, db_stock)
                 st.rerun()
-    
     st.markdown('<div class="card">', unsafe_allow_html=True)
     st.table(db_stock)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -322,28 +297,23 @@ elif menu == "History":
     if db_sales:
         df = pd.DataFrame(db_sales)
         st.dataframe(df, use_container_width=True)
-        
         st.markdown('<div class="card">', unsafe_allow_html=True)
         target = st.selectbox("Select Invoice", df['id'].tolist())
         idx = next(i for i, s in enumerate(db_sales) if s['id'] == target)
-        
         up_val = st.number_input("Update Payment", format="%.3f")
-        b1, b2 = st.columns(2)
-        with b1:
-            if st.button("Update Ledger"):
-                db_sales[idx]['advance'] += up_val
-                db_sales[idx]['balance'] -= up_val
-                save_json(SALES_DB, db_sales)
-                st.rerun()
-        with b2:
-            if st.button("Print Receipt"):
-                components.html(get_bill_html(db_sales[idx], True), height=900, scrolling=True)
+        if st.button("Update Ledger"):
+            db_sales[idx]['advance'] += up_val
+            db_sales[idx]['balance'] -= up_val
+            save_json(SALES_DB, db_sales)
+            st.rerun()
+        if st.button("Print Receipt"):
+            components.html(get_bill_html(db_sales[idx], True), height=900, scrolling=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
 elif menu == "Customers":
     st.title("Client Directory")
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    query = st.text_input("Search Name or Phone...").lower()
+    query = st.text_input("Search...").lower()
     if db_cust:
         res = [{"Phone": k, "Client Name": v['name']} for k, v in db_cust.items() if query in k or query in v['name'].lower()]
         st.table(res)
