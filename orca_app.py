@@ -38,25 +38,25 @@ st.markdown(f"""
             min-width: 260px !important;
         }}
         [data-testid="stSidebar"] * {{ color: white !important; }}
-        .nav {
+        .nav {{
             width: 260px;
             background: #00A89E;
             color: white;
             height: 100vh;
             position: fixed;
             padding: 20px;
-        }
+        }}
 
-        .nav h2 {
+        .nav h2 {{
             color: var(--primary);
             font-size: 1.2rem;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
-        }
+        }}
 
-        .nav ul { list-style: none; padding: 0; }
-        .nav li {
+        .nav ul {{ list-style: none; padding: 0; }}
+        .nav li {{
             padding: 12px 15px;
             margin-bottom: 10px;
             border-radius: 8px;
@@ -64,12 +64,12 @@ st.markdown(f"""
             transition: 0.3s;
             display: flex;
             align-items: center;
-        }
+        }}
 
-        .nav li:hover, nav li.active {
+        .nav li:hover, nav li.active {{
             background: var(--primary);
             color: white;
-        }
+        }}
         .nav-logo-container {{ text-align: center; padding: 10px 0 30px 0; }}
         .stApp {{ background-color: #f8fafc; color: #334155; }}
         .card {{
